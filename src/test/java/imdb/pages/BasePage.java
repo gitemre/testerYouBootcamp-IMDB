@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
 
@@ -23,6 +24,11 @@ public class BasePage {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
         return driver.findElement(by);
     }
+
+    public List<WebElement> findElements(By by, int timeout) {
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+        return driver.findElements(by);
+    }
     public void click(By by) {
         wait.until(ExpectedConditions.elementToBeClickable(by));
         findElement(by).click();
@@ -35,6 +41,8 @@ public class BasePage {
     public String getText(By by) {
         return driver.findElement(by).getText();
     }
+
+
 
     public void clear(By by) {
         driver.findElement(by).clear();
